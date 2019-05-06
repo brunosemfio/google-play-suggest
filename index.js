@@ -27,7 +27,7 @@ async function start() {
 
     async function querySuggest(searchTerm) {
         return gplay.suggest({
-            term: searchTerm,
+            term: searchTerm.trim(),
             country: 'br',
             lang: 'pt',
         })
