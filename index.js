@@ -4,7 +4,13 @@ const gplay = require('google-play-scraper')
 
 const readline = require('readline-sync')
 
+const argv = require("yargs").argv;
+
 async function start() {
+
+    const country = argv.c ? argv.c : 'br';
+
+    const lang = argv.l ? argv.l : 'pt';
 
     const alphabet = [...'abcdefghijklmnopqrstuvwxyz']
 
@@ -28,8 +34,8 @@ async function start() {
     async function querySuggest(searchTerm) {
         return gplay.suggest({
             term: searchTerm.trim(),
-            country: 'br',
-            lang: 'pt',
+            country: country,
+            lang: lang,
         })
     }
 }
