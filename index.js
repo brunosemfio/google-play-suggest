@@ -12,11 +12,13 @@ async function start() {
 
     const lang = argv.l ? argv.l : 'pt';
 
-    const alphabet = [...'abcdefghijklmnopqrstuvwxyz']
+    const nospace = argv.ns ? '' : ' ';
+
+    const alphabet = [...' abcdefghijklmnopqrstuvwxyz']
 
     const startTerm = await askAndReturnQueryTerm()
 
-    const searchTerms = alphabet.map(async i => await querySuggest(`${startTerm} ${i}`))
+    const searchTerms = alphabet.map(async i => await querySuggest(`${startTerm}${nospace}${i}`))
 
     const result = await Promise.all(searchTerms)
 
