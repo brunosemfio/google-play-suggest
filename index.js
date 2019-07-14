@@ -18,12 +18,12 @@ async function start() {
 
     const startTerm = await askAndReturnQueryTerm()
 
-    for(const letter of alphabet) {
+    for (const letter of alphabet) {
 
         const query = await querySuggest(`${startTerm}${nospace}${letter}`)
-        
+
         console.log('---')
-        query.forEach(r => { console.log(r)})
+        query.forEach(r => { console.log(r) })
         console.log('---')
     }
 
