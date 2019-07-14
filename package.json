@@ -9,8 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "google-play-scraper": "^6.2.5",
+    "google-play-scraper": "^6.2.6",
     "readline-sync": "^1.4.9",
-    "yargs": "^13.2.2"
+    "yargs": "^13.2.4"
   }
 }

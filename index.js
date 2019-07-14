@@ -18,16 +18,14 @@ async function start() {
 
     const startTerm = await askAndReturnQueryTerm()
 
-    const searchTerms = alphabet.map(async i => await querySuggest(`${startTerm}${nospace}${i}`))
+    for(const letter of alphabet) {
 
-    const result = await Promise.all(searchTerms)
-
-    console.log('---')
-
-    result.forEach(r => {
-        r.forEach(t => console.log(t))
+        const query = await querySuggest(`${startTerm}${nospace}${letter}`)
+        
         console.log('---')
-    })
+        query.forEach(r => { console.log(r)})
+        console.log('---')
+    }
 
     async function askAndReturnQueryTerm() {
         return readline.question('Search term: ')
